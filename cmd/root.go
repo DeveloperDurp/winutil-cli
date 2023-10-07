@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"os"
 
+	"winutil-cli/cmd/app"
+
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -36,6 +38,7 @@ func init() {
 		fmt.Println(err)
 	}
 
+	rootCmd.AddCommand(app.Appcmd)
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.winutil.yaml)")
 
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
